@@ -1,10 +1,9 @@
+import logo from '../assets/logo.png';
+
 const Header = () => {
   return (
     <header>
-      <a class="navbar-brand" href="#">
-        <img src="./assets/logo.png" alt="imagen de logo" />
-        Bootstrap
-      </a>
+      <img src={logo} alt="Logo" />
       <nav>
         <ul>
           <li><a href="/">Inicio</a></li>
