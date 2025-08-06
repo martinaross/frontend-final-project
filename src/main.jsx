@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Home } from './pages/Home'
+import { RouterApp } from './router/RouterApp'
 
 import "./styles/components/Footer.css"
 import "./styles/components/Header.css"
@@ -13,6 +13,6 @@ import { Login } from './pages/Login'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Login />
+    <RouterApp />
   </StrictMode>,
 )
