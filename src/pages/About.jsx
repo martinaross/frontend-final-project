@@ -1,11 +1,11 @@
 import { Layout } from "../components/Layout"
 
-const NotFound = () => {
+const About = () => {
   return (
     <Layout>
-      <h1>Hola desde NotFound</h1>
+      <h1>Hola desde About Us</h1>
     </Layout>
   )
 }
 
-export { NotFound }
+export { About }

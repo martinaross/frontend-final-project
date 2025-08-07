@@ -9,6 +9,7 @@ import "./styles/pages/Dashboard.css"
 import "./styles/pages/Login.css"
 import "./styles/pages/NotFound.css"
 import "./styles/pages/Register.css"
+import "./styles/pages/About.css"
 import { Login } from './pages/Login'
 
 createRoot(document.getElementById('root')).render(

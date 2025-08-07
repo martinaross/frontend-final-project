@@ -3,7 +3,10 @@ import { Layout } from "../components/Layout"
 const Home = () => {
   return (
     <Layout>
-      <h1>Hola desde Home</h1>
+      <section>
+        <h1>Doggy</h1>
+        <p>Catálogo</p>
+      </section>
     </Layout>
   )
 }
