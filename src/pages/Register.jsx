@@ -6,10 +6,12 @@ const Register = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
 
   const handleSumit = () => {
     e.preventDefault()
     setError("")
+    setSuccess("")
 
     if (!username || !email || !password) { setError("Debes completar todos los campos") } return
 
@@ -19,6 +21,7 @@ const Register = () => {
       password,
     }
     console.log(newUser)
+    setSuccess("Usuario Registrado")
     setUsername("")
     setPassword("")
     setEmail("")
@@ -52,6 +55,9 @@ const Register = () => {
 
         {
           error && <p>{error}</p>
+        }
+        {
+          success && <p>{success}</p>
         }
       </section>
 

@@ -1,8 +1,10 @@
 const Footer = () => {
   return (
     <footer>
-      <p> 2025 | Martina Rossignoli</p>
-      <p>Creator and developer of this online store for dog products.</p>
+      <p>© 2025 | MultiCompra</p>
+      <p>Creadora y desarrolladora: Martina Rossignoli</p>
+      <p>Tienda en línea con una amplia variedad de productos para todos.</p>
+
     </footer>
   )
 }
