@@ -2,20 +2,49 @@ import { useState } from "react"
 import { Layout } from "../components/Layout"
 
 const Dashboard = () => {
-  const [name, setName] = useState()
-  const [price, setPrice] = useState()
-  const [description, setDescription] = useState()
+  const [name, setName] = useState("")
+  const [price, setPrice] = useState("")
+  const [description, setDescription] = useState("")
+  const [product, setProduct] = useState(null)
+  const [error, setError] = useState(null)
 
-  const handleSumit = (e) => {
+  const handleSumit = async (e) => {
     e.preventDefault()
-    const newProduct = {
-      id: crypto.randomUUID(),
-      name: name,
-      price: price,
-      description: description,
+    setError(null)
+
+
+    if (!name || !price || !description) {
+      setError("Completa todos los campos requeridos")
     }
 
-    console.log(newProduct)
+    if (name.length < 3) {
+      setError("El nombre de usuario debe tener más de 4 caracteres")
+      return
+    }
+
+
+    const newProduct = {
+      id: crypto.randomUUID(),
+      title: name,
+      price: price,
+      description: description,
+      category: "",
+      image: "",
+    }
+
+    // petición al backend mediante fetch -> método POST https://fakeproductapi.com/products
+    const response = await fetch("https://fakestoreapi.com/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProduct)
+    })
+
+    const data = await response.json()
+
+    setProduct(newProduct)
+    setName("")
+    setPrice("")
+    setDescription("")
   }
 
   return (
@@ -26,18 +55,29 @@ const Dashboard = () => {
         <form onSubmit={handleSumit}>
           <div>
             <label>Nombre del producto:</label>
-            <input type="text" name="nombre" onChange={(e) => setName(e.target.value)} />
+            <input type="text" name="nombre" onChange={(e) => setName(e.target.value)} value={name} />
           </div>
           <div>
             <label>Precio:</label>
-            <input type="number" name="precio" onChange={(e) => setPrice(e.target.value)} />
+            <input type="number" name="precio" onChange={(e) => setPrice(e.target.value)} value={price} />
           </div>
           <div>
             <label>Descripción:</label>
-            <input type="descripcion" rows="4" onChange={(e) => setDescription(e.target.value)} />
+            <input type="descripcion" rows="4" onChange={(e) => setDescription(e.target.value)} value={description} />
           </div>
+          {
+            error && <p>{error}</p>
+          }
           <button>Guardar producto</button>
         </form>
+        {
+          product && <div>
+            <h3>{product.name}</h3>
+            <p>${product.price}</p>
+            <p>{product.description}</p>
+          </div>
+        }
+
       </section>
     </Layout>
   )
