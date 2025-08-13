@@ -15,15 +15,15 @@ const Header = () => {
           {
             user && <>
               <li><Link to="/dashboard">Dashboard</Link></li>
-              <li><Link to="/">Home</Link></li>
               <li><Link to="/about">Quiénes somos</Link></li>
               <button>Salir</button>
             </>
           }
           {
             !user && <>
-              <li><Link to="/login">Iniciar sesion</Link></li>
-              <li><Link to="/register">Registrate</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/login">Iniciar sesión</Link></li>
+              <li><Link to="/register">Registrarse</Link></li>
               <li><Link to="/about">Quiénes somos</Link></li>
             </>
           }
